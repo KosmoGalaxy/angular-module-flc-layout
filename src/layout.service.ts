@@ -17,9 +17,10 @@ export class LayoutService {
     if (nativeDepth > this._layoutElementNativeDepthMapMaxDepth) {
       this._layoutElementNativeDepthMapMaxDepth = nativeDepth;
     }
-    _.forEach(nativeParents, parent => {
-      if (this._layoutElementNativeElementMap.has(parent)) {
-        layoutElement.layoutParent = this._layoutElementNativeElementMap.get(parent);
+    _.forEach(nativeParents, nativeParent => {
+      const layoutParent: LayoutElementComponent = this._layoutElementNativeElementMap.get(nativeParent);
+      if (layoutParent) {
+        layoutElement.layoutParent = layoutParent;
         return false;
       }
     });
