@@ -13,7 +13,7 @@ export class BoxComponent implements LayoutElement, OnInit {
     element: ElementRef,
     layoutTreeService: LayoutTreeService
   ) {
-    layoutTreeService.registerBranch(this, element.nativeElement);
+    layoutTreeService.registerLayoutElement(this, element.nativeElement);
   }
 
   ngOnInit() {
